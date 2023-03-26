@@ -7,7 +7,7 @@
 
   <div class="py-6 grid grid-cols-[repeat(auto-fit,_250px)] justify-center gap-8">
     <% @movies.each do |movie| %>
-      <%= link_to movie, title: movie.title, class: "w-[250px] h-[450px] flex flex-col border-2 border-neutral-700 bg-neutral-700 hover:bg-opacity-90 items-center justify-center rounded-lg" do %>
+      <%= link_to movie_path(movie), title: movie.title, class: "w-[250px] h-[450px] flex flex-col border-2 border-neutral-700 bg-neutral-700 hover:bg-opacity-90 items-center justify-center rounded-lg" do %>
         <div class="w-full h-full overflow-hidden flex items-center justify-center bg-dark-theme rounded-lg">
           <% if movie.poster.attached? %>
             <img src="<%= url_for(movie.poster) %>" alt="film poster" class="object-cover">

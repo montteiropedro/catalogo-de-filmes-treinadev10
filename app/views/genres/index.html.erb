@@ -9,10 +9,8 @@
   </div>
 
   <% @genres.each do |genre| %>
-    <% if genre.movies.size == 1 %>
-      <%= link_to "#{genre.name} (#{genre.movies.size} Filme)", genre, class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
-    <% else %>
-      <%= link_to "#{genre.name} (#{genre.movies.size} Filmes)", genre, class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
-    <% end %>
+    <% movies_count = genre.movies.size %>
+
+    <%= link_to "#{genre.name} (#{movies_count} #{"filme".pluralize(movies_count)})", genre_path(genre), class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
   <% end %>
 </div>

@@ -5,6 +5,6 @@
   </div>
 
   <% @directors.each do |director| %>
-    <%= link_to director.name, director, class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
+    <%= link_to director.name, director_path(director), class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
   <% end %>
 </div>
