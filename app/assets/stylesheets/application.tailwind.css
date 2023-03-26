@@ -19,6 +19,14 @@
     @apply font-medium placeholder-neutral-500 border-2 border-neutral-500 bg-transparent rounded-lg;
   }
 
+  option:first-of-type {
+    @apply text-neutral-500;
+  }
+
+  option {
+    @apply text-black;
+  }
+
   input[type="submit"] {
     @apply cursor-pointer;
   }
