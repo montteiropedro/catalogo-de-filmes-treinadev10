@@ -1,0 +1,27 @@
+<%= form_with model: director, class: "mx-auto w-[500px]" do |form| %>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %>
+    <span class="mt-2 text-xs text-red-400"><%= director.errors[:name].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :nationality, "Nacionalidade" %>
+    <%= form.text_field :nationality %>
+    <span class="mt-2 text-xs text-red-400"><%= director.errors[:nationality].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :birthday, "Data de nascimento" %>
+    <%= form.date_field :birthday %>
+    <span class="mt-2 text-xs text-red-400"><%= director.errors[:birthday].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :genre_id, "Gênero favorito" %>
+    <%= form.collection_select :genre_id, Genre.order(:name), :id, :name, include_blank: "Selecione um gênero" %>
+    <span class="mt-2 text-xs text-red-400"><%= director.errors[:genre_id].join(", ") %></span>
+  </div>
+
+  <div class="mb-4 flex justify-end gap-2 font-medium">
+    <%= link_to "Voltar a lista de diretores", directors_path, class: "p-2 text-tertiary bg-secondary hover:bg-opacity-90 transition-all ease-in-out duration-300 rounded-lg" %>
+    <%= form.submit "Salvar", class: "p-2 text-secondary bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" %>
+  </div>
+<% end %>

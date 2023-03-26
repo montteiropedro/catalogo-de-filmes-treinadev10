@@ -1,0 +1,3 @@
+<h1><%= Genre.find(@genre.id).name %> - Editar Gênero</h1>
+
+<%= render partial: "form", locals: { genre: @genre } %>

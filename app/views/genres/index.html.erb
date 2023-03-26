@@ -1,0 +1,18 @@
+<div class="mx-auto max-w-[1280px] flex flex-col border-2 border-neutral-700 rounded-lg">
+  <div class="p-6 h-[90px] flex items-center justify-between border-b-2 border-neutral-700">
+    <h1 class="m-0 text-xl font-bold text-left">Lista Gêneros</h1>
+
+    <%= form_with model: @genre, scope: :genre, class: "justify-end" do |form| %>
+      <%= form.text_field :name, placeholder: "Adicione um novo gênero" %>
+      <%= form.submit "Adicionar", class: "p-2 text-secondary bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" %>
+    <% end %>
+  </div>
+
+  <% @genres.each do |genre| %>
+    <% if genre.movies.size == 1 %>
+      <%= link_to "#{genre.name} (#{genre.movies.size} Filme)", genre, class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
+    <% else %>
+      <%= link_to "#{genre.name} (#{genre.movies.size} Filmes)", genre, class: "p-8 w-full hover:bg-neutral-700 hover:bg-opacity-30"%>
+    <% end %>
+  <% end %>
+</div>

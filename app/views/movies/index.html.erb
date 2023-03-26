@@ -1,0 +1,26 @@
+<div class="mx-auto max-w-[1280px] flex flex-col">
+  <div class="p-6 h-[90px] flex items-center justify-between bg-neutral-700 shadow-md shadow-black rounded-lg">
+    <h1 class="m-0 text-xl font-bold text-left">Catálogo</h1>
+
+    <%= link_to 'Adicionar filme', new_movie_path, class: "p-2 font-medium bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" %>
+  </div>
+
+  <div class="py-6 grid grid-cols-[repeat(auto-fit,_250px)] justify-center gap-8">
+    <% @movies.each do |movie| %>
+      <%= link_to movie, title: movie.title, class: "w-[250px] h-[450px] flex flex-col border-2 border-neutral-700 bg-neutral-700 hover:bg-opacity-90 items-center justify-center rounded-lg" do %>
+        <div class="w-full h-full overflow-hidden flex items-center justify-center bg-dark-theme rounded-lg">
+          <% if movie.poster.attached? %>
+            <img src="<%= url_for(movie.poster) %>" alt="film poster" class="object-cover">
+          <% else %>
+            <i class="fa-solid fa-film text-6xl text-neutral-700"></i>
+          <% end %>
+        </div>
+
+        <div class="p-4 w-full h-[20%] overflow-hidden flex flex-col">
+          <span class="font-bold text-sm text-secondary uppercase overflow-hidden whitespace-nowrap text-ellipsis"><%= movie.title %></span>
+          <span class="text-sm font-bold text-secondary"><%= movie.year %></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

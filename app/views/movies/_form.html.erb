@@ -1,0 +1,46 @@
+<%= form_with model: movie, class: "mx-auto w-[500px]" do |form| %>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:title].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :year, "Ano de lançamento" %>
+    <%= form.number_field :year %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:year].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :synopsis, "Sinopse" %>
+    <%= form.text_area :synopsis %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:synopsis].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :country, "País de origem" %>
+    <%= form.text_field :country %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:country].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :duration, "Duração em minutos" %>
+    <%= form.number_field :duration %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:duration].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :director_id, "Diretor" %>
+    <%= form.collection_select :director_id, Director.order(:name), :id, :name, include_blank: "Selecione um diretor" %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:director_id].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :genre_id, "Gênero" %>
+    <%= form.collection_select :genre_id, Genre.order(:name), :id, :name, include_blank: "Selecione um gênero" %>
+    <span class="mt-2 text-xs text-red-400"><%= movie.errors[:genre_id].join(", ") %></span>
+  </div>
+  <div class="mb-4 flex flex-col font-bold">
+    <%= form.label :poster, "Poster" %>
+    <%= form.file_field :poster %>
+  </div>
+
+  <div class="mb-4 flex justify-end gap-2 font-medium">
+    <%= link_to "Voltar ao catálogo", movies_path, class: "p-2 text-tertiary bg-secondary hover:bg-opacity-90 transition-all ease-in-out duration-300 rounded-lg" %>
+    <%= form.submit "Salvar", class: "p-2 text-secondary bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" %>
+  </div>
+<% end %>
