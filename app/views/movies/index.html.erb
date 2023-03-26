@@ -10,7 +10,7 @@
       <%= link_to movie_path(movie), title: movie.title, class: "w-[250px] h-[450px] flex flex-col border-2 border-neutral-700 bg-neutral-700 hover:bg-opacity-90 items-center justify-center rounded-lg" do %>
         <div class="w-full h-full overflow-hidden flex items-center justify-center bg-dark-theme rounded-lg">
           <% if movie.poster.attached? %>
-            <img src="<%= url_for(movie.poster) %>" alt="film poster" class="object-cover">
+            <img src="<%= url_for(movie.poster) %>" alt="film poster" class="w-full h-full object-cover">
           <% else %>
             <i class="fa-solid fa-film text-6xl text-neutral-700"></i>
           <% end %>

@@ -14,7 +14,9 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
 
-    redirect_to genres_path if @genre.save
+    flash[:error] = "Gênero inválido ou já registrado" unless @genre.save
+
+    redirect_to genres_path
   end
 
   def edit

@@ -2,8 +2,12 @@
   <div class="p-6 h-[90px] flex items-center justify-between border-b-2 border-neutral-700">
     <h1 class="m-0 text-xl font-bold text-left">Lista Gêneros</h1>
 
-    <%= form_with model: @genre, scope: :genre, class: "justify-end" do |form| %>
+    <%= form_with scope: :genre, class: "flex items-center justify-end gap-2" do |form| %>
+      <% if flash[:error] %>
+        <span class="p-4 text-xs font-bold bg-red-500 bg-opacity-50 rounded-lg"><%= flash[:error] %></span>
+      <% end %>
       <%= form.text_field :name, placeholder: "Adicione um novo gênero" %>
+
       <%= form.submit "Adicionar", class: "p-2 text-secondary bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" %>
     <% end %>
   </div>
