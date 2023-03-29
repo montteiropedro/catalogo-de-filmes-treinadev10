@@ -37,6 +37,17 @@ class MoviesController < ApplicationController
     redirect_to movies_path, status: :see_other if @movie.destroy
   end
 
+  def toggle_status
+    movie = Movie.find(params[:id])
+    
+    case
+    when movie.published? then movie.draft!
+    when movie.draft? then movie.published!
+    end
+
+    redirect_to movie
+  end
+
   private
   
   def movie_params

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_171040) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_191159) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,10 +42,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_171040) do
   create_table "directors", force: :cascade do |t|
     t.string "name"
     t.string "nationality"
-    t.datetime "birthday"
-    t.integer "genre_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "birthday"
+    t.integer "genre_id", default: 0, null: false
     t.index ["genre_id"], name: "index_directors_on_genre_id"
   end
 
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_171040) do
     t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["director_id"], name: "index_movies_on_director_id"
     t.index ["genre_id"], name: "index_movies_on_genre_id"
   end

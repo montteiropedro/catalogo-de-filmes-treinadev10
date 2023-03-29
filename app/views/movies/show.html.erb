@@ -11,11 +11,19 @@
     <div class="p-6 h-[90px] flex items-center justify-between border-b-2 border-neutral-700">
       <h1 class="m-0 text-xl font-bold text-left"><%= @movie.title %></h1>
 
-      <div class="w-[142px] flex gap-2">
-        <%= link_to edit_movie_path(@movie), class: "w-full h-10 flex items-center justify-center bg-primary-500 hover:bg-primary-600 rounded-lg transition-all ease-in-out duration-300" do %>
+      <div class="flex gap-2">
+        <%= button_to toggle_status_movie_path(@movie), method: :patch, class: "px-2 h-10 flex items-center justify-center gap-2 font-bold bg-transparent hover:bg-neutral-500 hover:bg-opacity-30 border-2 border-neutral-500 transition-all ease-in-out duration-300 rounded-lg" do %>
+          <% if @movie.published? %>
+            <i class="fa-regular fa-circle-check text-lg text-emerald-400 animate-pulse"></i> Publicado
+          <% else %>
+            <i class="fa-regular fa-circle text-lg text-red-400 animate-pulse"></i> Rascunho
+          <% end %>
+        <% end %>
+
+        <%= link_to edit_movie_path(@movie), class: "px-2 w-10 h-10 flex items-center justify-center bg-primary-500 hover:bg-primary-600 transition-all ease-in-out duration-300 rounded-lg" do %>
           <i class="fa-solid fa-pen"></i>
         <% end %>
-        <%= link_to movie_path(@movie), data: { turbo_method: :delete, turbo_confirm: 'Deseja deletar este filme?' }, class: "w-full h-10 flex items-center justify-center bg-danger-500 hover:bg-danger-600 rounded-lg transition-all ease-in-out duration-300" do %>
+        <%= link_to movie_path(@movie), data: { turbo_method: :delete, turbo_confirm: 'Deseja deletar este filme?' }, class: "px-2 w-10 h-10 flex items-center justify-center bg-danger-500 hover:bg-danger-600 transition-all ease-in-out duration-300 rounded-lg" do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
       </div>

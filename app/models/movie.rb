@@ -4,6 +4,8 @@ class Movie < ApplicationRecord
 
   has_one_attached :poster
 
+  enum status: { draft: 0, published: 1 }
+
   validates(
     :title, :year, :synopsis, :country, :duration, :director_id, :genre_id,
     presence: { message: "Não pode estar vazio" }
