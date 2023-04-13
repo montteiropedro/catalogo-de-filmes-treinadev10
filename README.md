@@ -1,24 +1,30 @@
-# README
+# Catálogo de Filmes - TreinaDev 10
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
+- [Ruby Version](#ruby-version)
+- [Technologies](#technologies)
+- [Project Dependencies, Configurations & Database](#project-dependencies-configurations--database)
+- [Running The Project](#running-the-project)
 
-Things you may want to cover:
+## Ruby Version
+3.2.1
 
-* Ruby version
+## Technologies
+- Ruby on Rails;
+- Tailwind CSS.
 
-* System dependencies
+## Project Dependencies, Configurations & Database
+The first thing we must do after cloning the project is setup all its dependencies/configurations/databases. We can use the code below to do it all in one step:
 
-* Configuration
+```
+bin/setup
+```
 
-* Database creation
+## Running The Project
+To run this project we recommend you to use the below command:
 
-* Database initialization
+```
+bin/dev
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You could also use `bin/rails server`, but it would not work properly showing the changes made using tailwind CSS. So it is better to stick with `bin/dev`.
